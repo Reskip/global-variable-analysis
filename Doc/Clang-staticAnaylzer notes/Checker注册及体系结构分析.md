@@ -28,11 +28,11 @@ Clang 的静态分析类均继承自 Checker 类（clangStaticAnalyzerCore\Check
 
 首先在 Visual Studio 中的 "Clang libraries\clangStaticAnalyzerCheckers\Source Files" 中添加自己的 checker.cpp 文件，以课题举例，命名为 "globalVarChecker.cpp"
 
-![avatar](\img\0_0.png)
+![img](https://github.com/Reskip/global-variable-analysis/blob/master/Doc/Clang-staticAnaylzer%20notes/img/0_0.png)
 
 在 "libraries\clangStaticAnalyzerCheckers\TableGen descriptions\Checkers.td" 中添加自己 checker 的注册信息。根据协议，我们的 checker 应当分类在 alpha （即试验区）中;
 
-![avatar](\img\0_1.png)
+![img](https://github.com/Reskip/global-variable-analysis/blob/master/Doc/Clang-staticAnaylzer%20notes/img/0_1.png)
 
 红框区域即添加的注册信息，该注册信息将会被其余组件处理生成 .inc 文件，并通过 \#include 指令，在本模块编译前动态修改代码，从而动态生成本 checker 的注册函数。
 
